@@ -1,0 +1,426 @@
+/*--------------------------------------------------------------------------------------------|
+|	Project			Designers/Developers                                                      |
+|---------------------------------------------------------------------------------------------|
+|	Math Magician	Cheyenne von Kostka
+|					Nicholas Kizer
+|					Pablo Lomeli
+|---------------------------------------------------------------------------------------------|
+|	Date			Changes Made By			Changes											  |
+|---------------------------------------------------------------------------------------------|
+|   4.13.17			Cheyenne von Kostka		Changed link styles to be specified to the nav link.
+|											Added float and display to help resonsiveness to nav links
+|
+|	4.14.17			Cheyenne von Kostka		Changed the char type for nav links
+|					Nicholas Kizer			Seperated nav to save room and clean up page
+|											Updated bg image to a free image
+|											Enabled Boostrap | now using lists for nav
+|
+|	4.17.17			Nicholas Kizer			Cleaned up CSS
+|											Added new ID's for better navigation styling
+|
+|	4.19.17	 		Nicholas Kizer			Added styles for form navigation
+|											Changed file name from styles.css to ocean.css
+|											Added styles for math practice form
+|
+|	4.20.17			Nicholas Kizer			Re styled the navigation
+|											Added styles for timer buttons
+|											Added styles for notification
+|											Spaced out radio buttons
+|											Used larger font weight to increase readability
+|
+|	4.24.17			Nicholas Kizer			Added styles for hr element
+|											Added styles for reset button
+|											Adjusted styles to the timer, questions, score to fit when all character spaces are displayed
+|
+|	4.26.17			Nicholas Kizer			Adjusted styles to fit the chromebook
+|											centered the text for the score, timer, and question count
+|
+|	4.28.17			Nicholas Kizer			Added a media query to style the calculator and notification for larger screens
+|---------------------------------------------------------------------------------------------|
+|	PASTE BIN		
+|---------------------------------------------------------------------------------------------|
+|					COLORS
+|					#0066ff							Blue
+|					#ffffff							White
+|					#ffff00							Yellow
+|					rgba (255, 255, 255, .7)		White - 70% opacity
+|
+|					BORDERS
+|					2px solid #0066ff
+|
+|
+|---------------------------------------------------------------------------------------------|
+
+/* SETS BODY BACKGROUND */
+body {
+    height: 500px;
+    background-image: url(../images/ocean_bg.jpg);
+    background-image: no-repeat;
+    background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+/* INCREASES FONT WIEGHT FOR READABILITY */
+p { font-weight: 600; }
+
+/* FORM NAV - SETS POSITION AND LOOK OF THE FORM NAVIGATION */
+div.formNav {
+	width: 57%;
+    height: 65%; 
+	padding: .5em; 
+	border: 2px solid #0066ff;
+    background-color: rgba(255, 255, 255, .8);
+    margin-top: .75%;
+    margin-left: 12%;
+		
+}
+/* FORM NAV - STYLES FOR NUMBER SELECT */
+.formNav #numSelect {  
+	margin-left: 4.75%;  
+	display: block; 
+	float: left;
+	font-size: 1.25em;
+	font-weight: 700; 
+}
+
+/* FORM NAV - ADDS SPACING BETWEEN NUMBER SELECT */ 
+#numSign { margin-left: 1em; }
+
+/* FORM NAV - STYLES FOR MATH TYPE SELECT */
+.formNav #mathSelect {
+	margin-left: 7%; 
+	font-size: 1.75em;
+	font-weight: 700;
+}
+
+/* FORM NAV - STYLES FOR TIMER BUTTON (1 MIN. / 5 MIN.) */
+.formNav button.timeBtn {
+	margin-left: 7%;
+	display: block;
+	float: left;
+	background-color: #fff; 
+	border: 2px solid #0066ff;
+	border-radius: 50%; 
+	color: #0066ff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+	
+}
+
+/* FORM NAV - STYLES HR */
+hr.style { 
+    width:85%; 
+    margin:1% auto; 
+    border:0px none #fff; 
+    border-top:1px solid #0066ff; 
+}
+
+
+/* FORM NAV - STYLES FOR START AND RESET BUTTON */
+.formNav button#submitButton{ 
+	float: left;
+	margin-left: 38%; 
+	display: block;
+	background-color: #fff; 
+	border: 2px solid #0066ff;
+	border-radius: 50%; 
+	color: #0066ff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 1.5em;
+	font-weight: 500;
+}
+
+/* FORM NAV - STYLES FOR START BUTTON HOVER */
+.formNav button#submitButton:hover, .formNav button.timeBtn:hover, #reset:hover {
+	background-color: #ffff00;
+	color: #0066ff;	
+	text-decoration: none;
+}
+
+/* FORM NAV - STYLING FOR RESET BUTTON */
+#reset {
+	float: left;
+	display: block;	
+	margin-left: 5%; 
+	background-color: #fff; 
+	border: 2px solid #0066ff;
+	border-radius: 50%; 
+	color: #0066ff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 1.5em;
+	font-weight: 500;
+	
+}
+
+/* FORM NAV - STYLES ORDER NUMBERS */
+#navOrder {
+	margin-left: 2%;
+	margin-right: .5em;
+	background-color: #fff;
+	border: 2px solid #0066ff;
+	border-radius: 50%;
+	padding: .5em;
+	font-weight: 900;	
+}
+
+/* FORM NAV - SETS SPACE AT THE TOP */
+.navTopSpace { margin-top: 2%; }
+
+/* SETS SIZE AND POSITION OF THE CONTAINER HOLDING MAIN CONTENT */
+.content {
+    width: 57%; 
+    height: 60%;
+    background-color: rgba(255, 255, 255, .7);
+    margin-top: .75%;
+    margin-left: 12%;
+}
+
+/* MATH PRACTICE - STYLES INSTRUCTION BANNER */
+#banner {
+	width: 100%;
+	height: auto;
+	background-color: #fff;	
+	border: 2px solid #0066ff;
+	top: 15px;
+}
+
+/* MATH PRACTICE - STYLES INSTRUCTIONS FOR THE PROGRAM */
+#instructions {
+	margin-top: .5%;
+	margin-left: -1%;
+	font-size: 1.5em;	
+}
+
+/* MATH PRACTICE - STYLES FOR TEXTBOXES */
+#randomNumber, #chosenNumber, #testing {
+	display: inline-block;
+	margin-top: 10%;
+	height: 100px;
+	width: 100px;
+	border: 2px solid #0066ff;
+	font-size: 3em;	
+	text-align: center;
+}
+
+/* MATH PRACTICE - ALIGNS CALCULATOR BOXES */
+#chosenNumber, #testing {
+	margin-left: -.1%;	
+}
+
+/* MATH PRACTICE - MOVES CALCULATOR CONTAINER UP */
+#calculator {
+	margin-top: -24%;
+	margin-left: 15%; 
+}
+
+/* MATH PRACTICE - INCREASES FONT SIZE FOR MATH SIGN */ 
+#mathSign { font-size: 3em; }
+
+/* MATH PRACTICE - HIDES MATH SYMBOL UNTIL MATH TYPE IS SELECTED */
+#mathSignHIDDEN { display: none; }
+
+/* MATH PRACTICE - HIDES CHOSEN NUMBER */
+#chosenNumberHIDDEN { display: none; }
+
+/* MATH PRACTICE - INCREASES FONT SIZE FOR EQUAL SIGN */
+#mathEqualSign { font-size: 3em; }
+
+/* MATH PRACTICE - SETS LOCATION OF MATH FORM */
+#randomNumber {
+	margin-left: 15%;
+	display: absolute;	
+}
+
+/* MATH PRACTICE - STYLES RIGHT OR WRONG ANSWER NOTIFICATION */
+#answerNotification {
+	display: block;
+	float: left;
+	margin-top: -11%;
+	margin-left: 40%;
+	color: #ffff00;
+	font-size: 3em;
+	font-weight: 500;
+	text-shadow: 1px 1px 0 #0066ff,
+    			 -1px 1px 0 #0066ff,
+    			 1px -1px 0 #0066ff,
+    			 -1px -1px 0 #0066ff,
+    			 0px 1px 0 #0066ff,
+    			 0px -1px 0 #0066ff,
+    			 -1px 0px 0 #0066ff,
+    			 1px 0px 0 #0066ff,
+    			 2px 2px 0 #0066ff,
+    			 -2px 2px 0 #0066ff,
+    			 2px -2px 0 #0066ff,
+    			 -2px -2px 0 #0066ff,
+    			 0px 2px 0 #0066ff,
+    			 0px -2px 0 #0066ff,
+    			 -2px 0px 0 #0066ff,
+   				 2px 0px 0 #0066ff,
+   				 1px 2px 0 #0066ff,
+   				 -1px 2px 0 #0066ff,
+   				 1px -2px 0 #0066ff,
+   				 -1px -2px 0 #0066ff,
+   				 2px 1px 0 #0066ff,
+   				 -2px 1px 0 #0066ff,
+   				 2px -1px 0 #0066ff,
+   				 -2px -1px 0 #0066ff;	
+}
+
+/* MATH PRACTICE - STYLING FOR TIMER BOX*/
+#time {
+	padding-bottom: 3em;
+	padding-left: .35em;
+	padding-right: .25em;
+	width: 185px;
+	height: 125px;
+	display: block;
+	float: left;
+	margin-top: -9%;
+	margin-left: 104%;
+	font-size: 3em;
+	font-weight: 500;
+	text-align: center;
+	background-color: #fff;
+	border: 2px solid #0066ff;
+	clear: left;
+}
+
+/* MATH PRACTICE - STYLING FOR TIMER */
+#timer {
+	color: #ffff00;
+	text-shadow: 1px 1px 0 #0066ff,
+    			 -1px 1px 0 #0066ff,
+    			 1px -1px 0 #0066ff,
+    			 -1px -1px 0 #0066ff,
+    			 0px 1px 0 #0066ff,
+    			 0px -1px 0 #0066ff,
+    			 -1px 0px 0 #0066ff,
+    			 1px 0px 0 #0066ff,
+    			 2px 2px 0 #0066ff,
+    			 -2px 2px 0 #0066ff,
+    			 2px -2px 0 #0066ff,
+    			 -2px -2px 0 #0066ff,
+    			 0px 2px 0 #0066ff,
+    			 0px -2px 0 #0066ff,
+    			 -2px 0px 0 #0066ff,
+   				 2px 0px 0 #0066ff,
+   				 1px 2px 0 #0066ff,
+   				 -1px 2px 0 #0066ff,
+   				 1px -2px 0 #0066ff,
+   				 -1px -2px 0 #0066ff,
+   				 2px 1px 0 #0066ff,
+   				 -2px 1px 0 #0066ff,
+   				 2px -1px 0 #0066ff,
+   				 -2px -1px 0 #0066ff;	
+}
+
+/* MATH PRACTICE - STYLING FOR QUESTION COUNTER */
+
+#questionCount {
+	clear: left;
+	padding-top: .7em;
+	padding-left: .25em;
+	padding-right: .25em;
+	width: 185px;
+	height: 130px;
+	display: block;
+	float: left;
+	margin-top: 4%;
+	margin-left: 104%;
+	background-color: #fff;
+	border: 2px solid #0066ff;	
+	font-size: 3em;
+	font-weight: 500;
+	color: #ffff00;
+	text-align: center;
+	text-shadow: 1px 1px 0 #0066ff,
+    			 -1px 1px 0 #0066ff,
+    			 1px -1px 0 #0066ff,
+    			 -1px -1px 0 #0066ff,
+    			 0px 1px 0 #0066ff,
+    			 0px -1px 0 #0066ff,
+    			 -1px 0px 0 #0066ff,
+    			 1px 0px 0 #0066ff,
+    			 2px 2px 0 #0066ff,
+    			 -2px 2px 0 #0066ff,
+    			 2px -2px 0 #0066ff,
+    			 -2px -2px 0 #0066ff,
+    			 0px 2px 0 #0066ff,
+    			 0px -2px 0 #0066ff,
+    			 -2px 0px 0 #0066ff,
+   				 2px 0px 0 #0066ff,
+   				 1px 2px 0 #0066ff,
+   				 -1px 2px 0 #0066ff,
+   				 1px -2px 0 #0066ff,
+   				 -1px -2px 0 #0066ff,
+   				 2px 1px 0 #0066ff,
+   				 -2px 1px 0 #0066ff,
+   				 2px -1px 0 #0066ff,
+   				 -2px -1px 0 #0066ff;
+	
+}
+
+/* MATH PRACTICE - STYLING FOR SCORE BOX */
+div#results {
+	width: 185px;
+	padding-bottom: 3em;
+	padding-left: .5em;
+	padding-right: .25em;
+	height: 125px;
+	display: block;
+	float: left;
+	margin-top: -16%;
+	margin-left: 71%;
+	font-size: 3em;
+	font-weight: 100;
+	text-align: center;
+	background-color: #fff;
+	border: 2px solid #0066ff;	
+}
+
+/* MATH PRACTICE - STYLING FOR SCORE */
+label#testResults {
+	color: #ffff00;
+	text-shadow: 1px 1px 0 #0066ff,
+    			 -1px 1px 0 #0066ff,
+    			 1px -1px 0 #0066ff,
+    			 -1px -1px 0 #0066ff,
+    			 0px 1px 0 #0066ff,
+    			 0px -1px 0 #0066ff,
+    			 -1px 0px 0 #0066ff,
+    			 1px 0px 0 #0066ff,
+    			 2px 2px 0 #0066ff,
+    			 -2px 2px 0 #0066ff,
+    			 2px -2px 0 #0066ff,
+    			 -2px -2px 0 #0066ff,
+    			 0px 2px 0 #0066ff,
+    			 0px -2px 0 #0066ff,
+    			 -2px 0px 0 #0066ff,
+   				 2px 0px 0 #0066ff,
+   				 1px 2px 0 #0066ff,
+   				 -1px 2px 0 #0066ff,
+   				 1px -2px 0 #0066ff,
+   				 -1px -2px 0 #0066ff,
+   				 2px 1px 0 #0066ff,
+   				 -2px 1px 0 #0066ff,
+   				 2px -1px 0 #0066ff,
+   				 -2px -1px 0 #0066ff;	
+}
+
+/* MATH MAGICIAN - STYLES FOR A LARGER SCREEN */
+@media only screen and (min-width: 500px) {
+	
+	/* MATH PRACTICE - STYLES FOR TEXTBOXES */
+	#randomNumber, #chosenNumber, #testing { margin-top: 15%; }
+	
+	/* MATH PRACTICE - STYLES RIGHT OR WRONG ANSWER NOTIFICATION */
+	#answerNotification { margin-top: -6%; }
+}

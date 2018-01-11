@@ -1,0 +1,63 @@
+/* SETS BODY BACKGROUND */
+body {
+    height: 500px;
+    background-image: url(../images/halloween_bg.jpg);
+    background-image: no-repeat;
+    background-attachment: fixed;
+}
+
+/* SETS SIZE AND POSITION OF NAV BAR -- PREVENTS VERTICAL ALIGN FROM LINKS BEING BLURRY */
+.nav {
+    width: 50%;
+    height: 10%;
+    border: 2px solid #ff751a;
+    background-color: rgba(255,255,255,.5);
+    margin-top: 7%;
+    margin-left: 25%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+  
+}
+
+/* SETS SIZE AND POSITION OF THE CONTAINER HOLDING MAIN CONTENT */
+.content {
+    width: 60%; 
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+/* SETS ALIGNMENT OF SAMPLE TEXT */
+p {
+    text-align: center;
+}
+
+/* SETS POSITION AND STYLING OF LINKS -- VERTICAL ALIGNMENT SAFE FOR IE9 */
+a {
+    padding-top: .25em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    padding-left: 1em;
+    margin-left: 1%;
+    position: relative;
+    top: 22%;
+    transform: translateY(-22%);
+    -webkit-transform: translateY(-22%);
+    -ms-transform: translateY(-22%);
+    border: 2px solid #ff751a;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #ff751a;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: 900;
+}
+
+/* SETS STYLES FOR LINKS WHEN HOVERED BY CURSOR */
+a:hover {
+    border-radius: 5px;
+    background-color: #ff751a;
+    color: #fff;
+}

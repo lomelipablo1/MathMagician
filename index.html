@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<!--------------------------------------------------------------------------------------------|
+|	Project			Designers/Developers                                                      |
+|---------------------------------------------------------------------------------------------|
+|	Math Magician	Cheyenne von Kostka
+|					Nicholas Kizer
+|					Pablo Lomeli
+|---------------------------------------------------------------------------------------------|
+|	Date			Changes Made By			Changes											  |
+|---------------------------------------------------------------------------------------------|
+| 
+|   4.14.17		 	Cheyenne von Kostka		Added flower Box, and the inputs for the javascript
+|                                           Added math.js for looks and testing	
+|	
+|	4.19.17			Nicholas Kizer			Added spans to form for styling reasons							
+|											Changed button text from 'Submit' to 'Start'
+|											Changed file name to index.html from ocean.html
+|
+|	4.20.17			Pablo Lomeli			Added buttons for timer
+|					Nicholas Kizer			Added labels for questions taken, right or wrong notification, timer, and results
+|											Added class' and id's for styling 
+|											Added text for navigation explanation
+| 											Rearranged the timer, questions, and results
+|											Added styling for timer, questions, results, notification
+|
+|	4.17-4.20		Pablo Lomeli			Javascript for almost everything implemented except the code for the timer functions but I still 				
+|											attached them to fit the rest of the javascript. There are a few bugs to fix like stopping the timer
+|                                           accordingly.
+|
+|	4.24.17			Nicholas Kizer			Added a reset button to reload the page which resets the javascript
+|					Cheyenne von Kostka		Added a hr element to divide nav up 
+|											Created/Linked a favicon
+|--------------------------------------------------------------------------------------------->
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Math Magician</title>
+		
+        <link rel="shortcut icon" href="images/favicon2.ico" type="image/x-icon" />
+        <link href="css/ocean.css" type="text/css" rel="stylesheet" id="css" />
+		
+       <!-- <link href="css/forest.css" type="text/css" rel="stylesheet" id="forest" />
+        <link href="css/city.css" type="text/css" rel="stylesheet" id="city" />
+        <link href="css/halloween.css" type="text/css" rel="stylesheet" id="halloween" />
+        <link href="css/christmas.css" type="text/css" rel="stylesheet" id="christmas" /> -->
+		
+		     <!-- JavaScript to control CSS pages------------------------- Cheyenne's attempt
+		<script>
+		function CSS {
+		document.getElementById("css").href = "css/forest.css";
+	}
+		
+		
+		
+		</script> -->
+        
+        <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+        	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+			
+		
+    </head>
+    
+    <body>
+        <div class="formNav">
+        	<div class="navTopSpace"></div>
+            <label id="chosenNumberHIDDEN" class="mathSignStyle"></label>
+        	<p><span id="navOrder">1</span>Pick a number group you want to practice:</p>
+            <form id="testChoice">
+                <span id="numSelect">
+                    <input type="radio" name="number" value="1" id="numSign" required > 1 
+                    <input type="radio" name="number" value="2" id="numSign" > 2 
+                    <input type="radio" name="number" value="3" id="numSign" > 3 
+                    <input type="radio" name="number" value="4" id="numSign" > 4 
+                    <input type="radio" name="number" value="5" id="numSign" > 5 
+                    <input type="radio" name="number" value="6" id="numSign" > 6 
+                    <input type="radio" name="number" value="7" id="numSign" > 7
+                    <input type="radio" name="number" value="8" id="numSign" > 8 
+                    <input type="radio" name="number" value="9" id="numSign" > 9
+                    <input type="radio" name="number" value="10" id="numSign" > 10 
+                    <input type="radio" name="number" value="11" id="numSign" > 11 
+                    <input type="radio" name="number" value="12" id="numSign" > 12
+                </span>
+                <br />
+                <br />
+                <p><span id="navOrder">2</span>Pick what kind of math you want to do:</p>
+                <span id="mathSelect">
+                    <input type="radio" name="mathSign" value="+" required> +
+                    <input type="radio" name="mathSign" value="-" id="numSign"> - 
+                    <input type="radio" name="mathSign" value="*" id="numSign"> &times; 
+                    <input type="radio" name="mathSign" value="/" id="numSign"> &divide;
+                </span>
+                <br />
+                <br />
+                <p><span id="navOrder">3</span>Pick how much time you want:</p>
+                <button onclick="settime1()" type="button" class="timeBtn" id="timeBtn1">1 Minute Quiz</button>
+				<button onclick="settime5()" type="button" class="timeBtn" id="timeBtn2">5 Minute Quiz</button>
+            	<br />
+                <br />
+                <hr class="style" />
+                <button id="submitButton" type="button" onclick="insertData()">Start</button>
+                <!--<a href="index.html" alt="Reset" id="reset">Reset</a>  --> 
+				<button type="button" id="reset" onClick="window.location.reload()">Reset</button>
+            </form>
+        </div>
+        
+        <div id="results">
+        	Score:<br /><label id="testResults" class="mathSignStyle"></label>
+        </div>
+    	
+        
+        <!-- MAIN BODY ------------------------------------------------------>
+        
+        <div class="content">
+        	<div id="banner">
+        		<ul id="instructions"> 
+                	<li>Type your answer into the box and hit the 'Enter' key on your keyboard.</li>
+            		<li>Try to answer as many questions right as possible in the time limit.</li>
+                </ul>		
+            </div> 
+            
+            <div id="time">
+            	Time:<br /><span id="timer"></span>
+            </div>  
+            
+            <div id="questionCount">
+            	<label id="currentAnswered" class="mathSignStyle">0</label>/<label id="totalGiven" class="mathSignStyle">20</label>
+            </div> 	
+            
+            
+            <br /> 
+            
+            <label id="answerNotification" class="mathSignStyle"></label>
+                   
+			
+			
+        </div>
+        <div id="calculator">
+                <input disabled="true" type="text" class="numberBox" id="randomNumber" value=""></input>
+    
+                <label id="mathSign" class="mathSignStyle"></label>
+                <label id="mathSignHIDDEN" class="mathSignStyle"></label>
+                <input disabled="true" type="text" class="numberBox" id="chosenNumber" value=""></input>
+                
+    
+                <label id="mathEqualSign" class="mathSignStyle">=</label>
+                <input disabled="true" type="text" name="userInput" onkeypress="onTestChange()" class="numberBox" id="testing" value=""></input>
+            </div>
+            <!--Math.js  4.17.17----------------------------------------------------->
+			<script type="text/javascript" src="js/math.js"></script>
+    
+    </body>
+    

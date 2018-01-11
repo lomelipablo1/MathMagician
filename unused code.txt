@@ -1,0 +1,34 @@
+/*	if (currentMathSign == "-") // trying to get negatives to stop
+			{
+				var selectedNumber = document.getElementById("chosenNumber").value;
+				function getRandomIntInclusive(min, max) {
+			  min = Math.ceil(min);
+			  max = Math.floor(max);
+				return Math.floor(Math.random() * (max - min + 1)) + min; }
+				//var ranNum = Math.floor(Math.random() * (12 - selectedNumber + 1 )) + selectedNumber;
+				var ranNum = getRandomIntInclusive(selectedNumber, 12);
+				document.getElementById("randomNumber").value = ranNum;
+				document.getElementById("testing").value = "";
+				var answer = "correct";
+				showResult(answer);
+				
+			} */
+
+
+//These checks will decide which random number generator to use to that the right numbers are picked to test the user
+		/* if (currentMathSign == "-") // trying to get negatives to stop
+			{
+				
+			alert("butt") // it gets to this, but can't get a test case to not go - trying to get the random number to be EX max 12 min chosen so like 4
+			function getRandomIntInclusive(min, max) {
+			  min = Math.ceil(min);
+			  max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min + 1)) + min; }
+				
+				var selectedNumber = document.getElementById("chosenNumber").value;
+				
+				var ranNum = getRandomIntInclusive(selectedNumber, 12);
+				document.getElementById("randomNumber").value = ranNum;
+				alert(selectedNumber)
+				alert(ranNum)
+			} */
